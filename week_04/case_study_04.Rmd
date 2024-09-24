@@ -1,16 +1,24 @@
 ---
 title: "Case Study 04"
-author: Your Name
-date: August 1, 2020
+author: Festus Adegbola
+date: Sept 24, 2024
 output: github_document
 ---
 
 ## First Header
 
 Comments
+Load Packages and Load Datasets from the "NYCFLIGHTS" package
 
 ```{r}
-summary(cars)
+
+library(tidyverse)
+library(nycflights13)
+data("flights")
+data("airports")
+data("weather")
+data("airlines")
+data("planes")
 ```
 
 ## Second Header
