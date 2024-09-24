@@ -12,18 +12,26 @@ Load Packages and Load Datasets from the "NYCFLIGHTS" package
 
 ```{r}
 
+<<<<<<< HEAD
 #library(tidyverse)
 #library(nycflights13)
 
+=======
+library(tidyverse)
+library(nycflights13)
+>>>>>>> 39d89905fc6d588334abe09eab02ddf16a2a12e9
 data("flights")
 data("airports")
 data("weather")
 data("airlines")
 data("planes")
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 39d89905fc6d588334abe09eab02ddf16a2a12e9
 ```
 
 ## Second Header
