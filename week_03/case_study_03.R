@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 ## install if needed (do this exactly once)
+=======
+## install if needed (do this exactly once):
+#install.packages("usethis")
+
+#library(usethis)
+#use_git_config(user.name = "Festuus", user.email = "festusad@buffalo.edu")
+
+# gitcreds::gitcreds_set()
+
+>>>>>>> caeec74733cc44725815dadf17a3eb0d59d16ea3
 #TOPIC <- Data wrangling plus more advanced ggplot
 
 #Load Library to be used for tasts
@@ -60,8 +71,12 @@ case3 <- ggplot() +
         size = "Population (100k)",
         colour = "Continent") 
 
+<<<<<<< HEAD
 case3
 case3_first
+=======
+
+>>>>>>> caeec74733cc44725815dadf17a3eb0d59d16ea3
 
 ggsave(filename = "Plot1.png", case3_first, width = 15, units = "in")
 ggsave(filename = "Plot2.png", case3, width = 15, units = "in")
