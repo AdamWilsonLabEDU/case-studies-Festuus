@@ -4,6 +4,11 @@ author: Festus Adegbola
 date: October 1st, 2024
 output: github_document
 ---
+<<<<<<< HEAD
+=======
+##LIBRARIES
+
+>>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
 Install and Load Necessary Packages
 
 ``` r
@@ -25,7 +30,11 @@ install.packages("htmlwidgets")
 library(htmlwidgets)
 ```
 
+<<<<<<< HEAD
 
+=======
+##DATA 
+>>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
 
 load 'world' data from spData package
 load 'states' boundaries from spData package
@@ -37,7 +46,11 @@ plot(world[1])
 plot(us_states[1]) 
 ```
 
+<<<<<<< HEAD
 DATA WRANGLING
+=======
+##STEPS FOR WORLD DATASET
+>>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
 ```r
 #Transform the world dataset to the albers equal area projection
 
@@ -51,7 +64,11 @@ Canada <- world_trans %>%
 Canada_buffered <- st_buffer(Canada, dist= 10000)
 ```
 
+<<<<<<< HEAD
 DATA WRANGLING FOR US_STATES
+=======
+##STEPS FOR US_STATES
+>>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
 ```r
 #Transform the world dataset to the albers equal area projection
 
@@ -61,7 +78,11 @@ NY <- state_trans %>%
           filter(NAME == "New York")
 ```
 
+<<<<<<< HEAD
 CREATING BORDER PROJECT
+=======
+#STEPS FOR CREATING A BORDER
+>>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
 ```r
 border <- st_intersection(NY, Canada_buffered)
 
@@ -82,7 +103,11 @@ print(Borderplot)
 ggsave(Borderplot, file= "Borderplot.png")
 ```
   
+<<<<<<< HEAD
 Build Map on leaflet
+=======
+##Build Map on leaflet
+>>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
 ```r
 NY_transformed <- st_transform(NY, crs = 4326)
 border_transformed <- st_transform(border, crs = 4326)
