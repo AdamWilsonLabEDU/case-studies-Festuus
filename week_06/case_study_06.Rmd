@@ -52,6 +52,11 @@ geom_sf(aes())+
 scale_fill_viridis_c(name="Maximum\nTemperature (C)")+
 theme(legend.position = 'bottom')
 
+ggsave(world_temp, filename="world_temp.png")
+
 ```
 
+Filter Data
+```r
+hottest_continents <- world
 
