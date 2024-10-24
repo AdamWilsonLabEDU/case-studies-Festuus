@@ -1,7 +1,28 @@
 ---
 title: "Case Study 07"
-author: Your Name
-date: August 1, 2020
+author: Festus
+date: Oct 24, 2024
 output: github_document
 ---
- 
+
+
+```{r}
+library(tidyverse)
+library(reprex)
+library(sf)
+
+library(spData)
+data(world)
+```
+
+make the figure
+
+```{r}
+reprex_plot <- ggplot(world, aes(x=gdpPercap, fill=continent))+
+   geom_density(alpha=0.5) +
+  labs(x = "GDP Per Capita", y = "Density") +
+  theme_classic()
+
+reprex_plot
+ggsave(reprex_plot, filename= "reprexplot.png")
+```
