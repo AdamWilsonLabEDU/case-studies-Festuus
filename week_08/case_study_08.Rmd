@@ -1,7 +1,56 @@
 ---
 title: "Case Study 08"
-author: Your Name
-date: August 1, 2020
+author: Festus Adegbola
+date: Oct 24, 2024
 output: github_document
+format:
+  html: default
+  gfm: default
+  pptx: default
+  docx: default
 ---
+
+#Load Library
+ ```{r loading_packages, message = FALSE}
+ library(ggplot2)
+ library(dplyr)
+ library(kableExtra)
+ library(webshot2)
+ ```
  
+#Data
+The data used here is the **Mauna Loa CO2 annual mean data**. It can be found at 
+[NOAA Global Monitoring Laboratory] (https://gml.noaa.gov/ccgg/trends/data.html)
+
+##Load Data
+```{r, loading data}
+CO2mean <- readr::read_table("ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt", 
+skip = 57,           
+comment = "#",       
+col_names = c("Year", "Mean", "Uncertainty"))
+```
+
+#Plot
+```{r}
+ggplot(CO2mean, aes(Year, Mean))+
+  geom_line(color="red", size=3) +
+  theme_classic()+
+  labs(title="Annual Mean Carbon Dioxide Concentrations 1959-Present",
+      x= "Year",
+      y= "Mauna Loa CO2 Annual Mean")
+```
+
+
+#Top Five Annual Mean Carbon Dioxide Concentrations at Mona Loa
+```{r}
+CO2mean %>%
+ arrange(desc(Mean)) %>%  
+  slice_head(n = 5) %>%
+  knitr::kable() %>%
+  kable_styling(position = "center") %>%
+  as_image(width = 10,file = "table.png")
+```
+
+```{r}
+#quarto::render("path/to/file.qmd",output_format = "all")
+```
