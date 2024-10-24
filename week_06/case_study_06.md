@@ -1,13 +1,11 @@
----
-title: "Case Study 06"
-author: Festus Adegbola
-date: October 8, 2020
-output: github_document
----
+Case Study 06
+================
+Festus Adegbola
+October 8, 2020
 
 Load libraries
 
-```r
+``` r
 library(sf)
 library(terra)
 library(spData)
@@ -16,8 +14,9 @@ library(tidyverse)
 library(ncdf4)
 ```
 
-Import Data 
-```r
+Import Data
+
+``` r
 download.file("https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc","crudata.nc")
 
 # read in the data using the rast() function from the terra package
@@ -25,7 +24,8 @@ tmean <- rast("crudata.nc")
 ```
 
 Initial Display
-```r
+
+``` r
 class(tmean)
 tmean
 plot(tmean)
@@ -34,7 +34,8 @@ plot(tmean_max)
 ```
 
 Using Terra
-```r
+
+``` r
 #call world data
 data(world)
 
@@ -46,17 +47,10 @@ world_clim <- cbind(world, ex)
 ```
 
 Create Plots
-```r
+
+``` r
 world_temp <- ggplot(world_clim, aes(fill=max)) +
 geom_sf(aes())+
 scale_fill_viridis_c(name="Maximum\nTemperature (C)")+
 theme(legend.position = 'bottom')
-
-ggsave(world_temp, filename="world_temp.png")
-
 ```
-
-Filter Data
-```r
-hottest_continents <- world
-

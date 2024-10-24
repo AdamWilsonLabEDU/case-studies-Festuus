@@ -1,14 +1,8 @@
----
-title: "Case Study 05"
-author: Festus Adegbola
-date: October 1st, 2024
-output: github_document
----
-<<<<<<< HEAD
-=======
-##LIBRARIES
+Case Study 05
+================
+Festus Adegbola
+October 1st, 2024
 
->>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
 Install and Load Necessary Packages
 
 ``` r
@@ -30,28 +24,19 @@ install.packages("htmlwidgets")
 library(htmlwidgets)
 ```
 
-<<<<<<< HEAD
+load ‘world’ data from spData package load ‘states’ boundaries from
+spData package
 
-=======
-##DATA 
->>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
-
-load 'world' data from spData package
-load 'states' boundaries from spData package
-
-```r
+``` r
 data(world)  
 data(us_states)
 plot(world[1])  
 plot(us_states[1]) 
 ```
 
-<<<<<<< HEAD
 DATA WRANGLING
-=======
-##STEPS FOR WORLD DATASET
->>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
-```r
+
+``` r
 #Transform the world dataset to the albers equal area projection
 
 albers = "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs"
@@ -64,12 +49,9 @@ Canada <- world_trans %>%
 Canada_buffered <- st_buffer(Canada, dist= 10000)
 ```
 
-<<<<<<< HEAD
 DATA WRANGLING FOR US_STATES
-=======
-##STEPS FOR US_STATES
->>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
-```r
+
+``` r
 #Transform the world dataset to the albers equal area projection
 
 state_trans <- st_transform(us_states, crs = albers)
@@ -78,12 +60,9 @@ NY <- state_trans %>%
           filter(NAME == "New York")
 ```
 
-<<<<<<< HEAD
 CREATING BORDER PROJECT
-=======
-#STEPS FOR CREATING A BORDER
->>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
-```r
+
+``` r
 border <- st_intersection(NY, Canada_buffered)
 
 area <- st_area(border) %>%
@@ -102,13 +81,10 @@ Borderplot <- ggplot() +
 print(Borderplot)
 ggsave(Borderplot, file= "Borderplot.png")
 ```
-  
-<<<<<<< HEAD
+
 Build Map on leaflet
-=======
-##Build Map on leaflet
->>>>>>> 3333b34c4dc20d861c29799b1e06d34c7252716f
-```r
+
+``` r
 NY_transformed <- st_transform(NY, crs = 4326)
 border_transformed <- st_transform(border, crs = 4326)
 
@@ -123,10 +99,4 @@ Leaflet_plot <- leaflet() %>%
  addControl("<b>NY Land within 10KM of Canada</b><br>Area: 3495 sq.km", position = "topright")
  
 saveWidget(Leaflet_plot, file = "leaflet_map.html")
-
 ```
-
- 
-
-
-
