@@ -1,12 +1,11 @@
----
-title: "Case Study 09"
-author: Festus Adegbola
-date: Nov 18, 2024
-output: github_document
----
+Case Study 09
+================
+Festus Adegbola
+Nov 18, 2024
 
-Load libraries 
-```r
+Load libraries
+
+``` r
 library(sf)
 library(tidyverse)
 library(ggmap)
@@ -18,12 +17,12 @@ library(viridis)
 
 Load Data
 
-```r
+``` r
 data(world)
 data(us_states)
 ```
 
-```r
+``` r
  # Download a csv from noaa with storm track information
 dataurl="https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/ibtracs.NA.list.v04r01.csv"
 
@@ -65,4 +64,3 @@ storm_count <- storm_states %>%
 
 print(storm_count)
 ```
-
