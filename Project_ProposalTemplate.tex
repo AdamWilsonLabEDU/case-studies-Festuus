@@ -1,8 +1,80 @@
-Project Proposal Template
-================
-Festus Adegbola
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Project Proposal Template},
+  pdfauthor={Festus Adegbola},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-# Introduction to problem/question
+\title{Project Proposal Template}
+\author{Festus Adegbola}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction to
+problem/question}\label{introduction-to-problemquestion}
 
 The Osprey (Pandion haliaetus) is a migratory bird species with a broad
 distribution across North America. My project will explore seasonal
@@ -15,15 +87,15 @@ seeks to provide insight into the correlation between photo-based
 citizen science data, as well as to highlight how social media platforms
 like Flickr can contribute to ecological studies.
 
-# Problem / Question
+\section{Problem / Question}\label{problem-question}
 
 Can we crowd-source the presence/absence data of a bird species from
 social media data?
 
-# Inspiring Examples
+\section{Inspiring Examples}\label{inspiring-examples}
 
-\##Example1
-![](https://ars.els-cdn.com/content/image/1-s2.0-S0048969719323095-ga1_lrg.jpg)
+\#\#Example1
+\includegraphics{https://ars.els-cdn.com/content/image/1-s2.0-S0048969719323095-ga1_lrg.jpg}
 This article used social media data, mined from Flickr and Twitter,
 geolocated in Important Bird and Biodiversity Areas (IBAs) to assess i)
 patterns of popularity; ii) relationships of this popularity with
@@ -31,9 +103,9 @@ geographical and biological variables; and iii) identify sites under
 high pressure from visitors. I selected this example as it uses the same
 data source, Flickr, as I propose to use for my project.
 
-## Example 2
+\subsection{Example 2}\label{example-2}
 
-![](https://ars.els-cdn.com/content/image/1-s2.0-S2351989421002304-gr3_lrg.jpg)
+\includegraphics{https://ars.els-cdn.com/content/image/1-s2.0-S2351989421002304-gr3_lrg.jpg}
 
 Similarly, citizen science projects contributed to the shortfall in data
 for biodiversity monitoring and promoted public stewardship of nature in
@@ -42,35 +114,35 @@ BigMonth2020, a month-long birdwatching event across Java and Bali,
 publicised through social media and incentivised with grants and
 competitions.
 
-## Example 3
+\subsection{Example 3}\label{example-3}
 
-![](https://www.biorxiv.org/content/biorxiv/early/2024/04/01/2024.03.29.587372/F2.large.jpg)
+\includegraphics{https://www.biorxiv.org/content/biorxiv/early/2024/04/01/2024.03.29.587372/F2.large.jpg}
 Here, the authors evaluated the potential of social media as a citizen
 science data source for bird-window collision (BWC), They collected BWC
 data on social media Facebook as well as Taiwan Roadkill Observation
 Network (TaiRON), the main dedicated citizen science platform for
 reporting wildlife mortalities in Taiwan. The authors then compared a
-decade of BWC data (2012–2022) from the two platforms by examining the
+decade of BWC data (2012--2022) from the two platforms by examining the
 nationwide geographical coverage and the species compositions of the BWC
 observations. This project is a relevant example of how social media
 data has been used to explore ecological understandings.
 
-# Proposed data sources
+\section{Proposed data sources}\label{proposed-data-sources}
 
-Flickr Photos: Flickr’s public API will be used to gather geotagged
+Flickr Photos: Flickr's public API will be used to gather geotagged
 images of Ospreys from across the U.S. by querying hashtags such as
-“\#Osprey” and related keywords. Timeframe: Images will be filtered by
+``\#Osprey'' and related keywords. Timeframe: Images will be filtered by
 date to analyze seasonal trends. API Documentation: Flickr API
 
-eBird Data: eBird’s occurrence and observation data will be accessed
+eBird Data: eBird's occurrence and observation data will be accessed
 through their data portal, focusing on Osprey sightings across the U.S.
 The data will include location, date, and number of birds observed. API
 Documentation: eBird API
 
-# Proposed methods
+\section{Proposed methods}\label{proposed-methods}
 
 Data Collection: Use the Flickr API to collect images tagged with
-“Osprey” and related keywords. Download metadata including location,
+``Osprey'' and related keywords. Download metadata including location,
 date, and time of posting. Use the eBird API to gather occurrence data
 for Ospreys across the U.S., filtering by date range to match the
 temporal scope of the Flickr data.
@@ -87,13 +159,13 @@ occurrences. Create a spatial analysis using R packages like sf for
 spatial data handling and dplyr for data manipulation.
 
 Visualization: Use ggplot2 for initial seasonal trend visualizations
-(e.g., month-by-month comparison of Flickr sightings vs. eBird
+(e.g., month-by-month comparison of Flickr sightings vs.~eBird
 observations). Create an interactive map with leaflet to visualize
 geographic patterns of Osprey sightings based on both data sources.
 Generate a heatmap to compare Osprey presence across the U.S. by season,
 using both the Flickr and eBird datasets.
 
-# Expected results
+\section{Expected results}\label{expected-results}
 
 A set maps showing the geographic distribution of Osprey sightings over
 time, comparing the patterns in Flickr photos with eBird data. Seasonal
@@ -102,3 +174,5 @@ U.S. based on both data sources, highlighting any matching patterns or
 discrepancies. A final report summarizing findings, with a focus on
 identifying migration trends and any correlation between photo-based
 data and formal bird observation data.
+
+\end{document}
