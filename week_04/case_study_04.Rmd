@@ -5,39 +5,49 @@ date: Sept 24, 2024
 output: github_document
 ---
 
-## First Header
+```{r}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+```
 
-Comments
-Load Packages and Load Datasets from the "NYCFLIGHTS" package
+
+```{r setup, include=FALSE}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+```
 
 ```{r}
-
-<<<<<<< HEAD
-#library(tidyverse)
-#library(nycflights13)
-
-=======
+install.packages("tidyverse")
+install.packages("nycflights13")
 library(tidyverse)
 library(nycflights13)
->>>>>>> 39d89905fc6d588334abe09eab02ddf16a2a12e9
-data("flights")
-data("airports")
-data("weather")
-data("airlines")
-data("planes")
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 39d89905fc6d588334abe09eab02ddf16a2a12e9
+library(dplyr)
 ```
 
-## Second Header
+## #View the different datasets
 
 Comments
 
 ```{r}
-plot(pressure)
+#View the different datasets
+View(flights)
+View(airports)
 ```
+```{r}
+# Join flights data with airports data to get full airport names
+flights_airports <- flights %>%
+  left_join(airports, by = c("dest" = "faa")) #keeps the rows left of the airports column...like adding the full name and airports dest 
+```
+
+```{r}
+# Find the farthest destination and get the full airport name
+farthest_airport <- flights_airports %>%
+  filter(!is.na(distance)) %>% #to ignore the distance that are invalid
+  arrange(desc(distance)) %>% #arrange in distance descending order to find highest easily
+  slice(1) %>% #take only the top result
+  pull(name) #extract airport name. can also use select 
+
+# show the result
+farthest_airport
+
+```
+
