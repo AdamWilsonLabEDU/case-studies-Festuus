@@ -1,11 +1,9 @@
----
-title: "Case Study 12"
-author: Festus Adegbola
-date: Nov 19, 2024
-output: github_document
----
- 
-```r
+Case Study 12
+================
+Festus Adegbola
+Nov 19, 2024
+
+``` r
 library(tidyverse)
 library(htmlwidgets)
 library(widgetframe)
@@ -14,13 +12,14 @@ library(dygraphs)
 install.packages("dygraphs")
 library(openmeteo)
 ```
-```r
+
+``` r
 d<- weather_history(c(43.00923265935055, -78.78494250958327),start = "2023-01-01",end=today(),
                   daily=list("temperature_2m_max","temperature_2m_min","precipitation_sum")) %>% 
 mutate(daily_temperature_2m_mean=(daily_temperature_2m_max+daily_temperature_2m_min)/2)
 ```
 
-```r
+``` r
 d_xts <- d %>%
   select(date, daily_temperature_2m_max, daily_temperature_2m_min, daily_temperature_2m_mean) %>%
   column_to_rownames("date") %>%

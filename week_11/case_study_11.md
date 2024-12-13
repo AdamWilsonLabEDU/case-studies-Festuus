@@ -1,11 +1,9 @@
----
-title: "Case Study 11"
-author: Festus Adegbola
-date: Nov 19, 2024
-output: github_document
----
+Case Study 11
+================
+Festus Adegbola
+Nov 19, 2024
 
-```r
+``` r
 install.packages("mapview")
 library(tidycensus)
 library(sf)
@@ -14,7 +12,7 @@ library(foreach)
 library(mapview)
 ```
 
-```r
+``` r
 # Step 1: Define the race variables (from the census)
 race_vars <- c(
   "Total Population" = "P1_001N",
@@ -32,7 +30,7 @@ erie <- get_decennial(geography = "block", variables = race_vars, year=2020,
                   sumfile = "pl", cache_table=T) 
 ```
 
-```r
+``` r
 
 bbox <- st_sfc(
   st_polygon(list(matrix(c(-78.9, 42.888, 

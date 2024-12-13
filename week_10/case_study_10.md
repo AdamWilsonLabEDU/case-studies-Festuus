@@ -1,12 +1,9 @@
----
-title: "Case Study 10"
-author: Festus Adegbola
-date: Nov 20, 2024
-output: github_document
----
- 
- 
-```r
+Case Study 10
+================
+Festus Adegbola
+Nov 20, 2024
+
+``` r
 library(terra)
 # install.packages("rasterVis")
 library(rasterVis)
@@ -19,8 +16,7 @@ install.packages("ncdf4")
 library(ncdf4)
 ```
 
-
-```r
+``` r
 # Create afolder to hold the downloaded data
 dir.create("data",showWarnings = F) 
 
@@ -40,8 +36,7 @@ lulc=lulc[[13]]
 plot(lulc)
 ```
 
-
-```r
+``` r
 Land_Cover_Type_1 = c(
     Water = 0, 
     `Evergreen Needleleaf forest` = 1, 
@@ -74,7 +69,7 @@ lcd=data.frame(
 kable(head(lcd))
 ```
 
-```r
+``` r
 # convert to raster (easy)
 lulc=as.factor(lulc)
 
@@ -94,15 +89,14 @@ gplot(lulc)+
   guides(fill=guide_legend(ncol=1,byrow=TRUE))
 ```
 
-
-```r
+``` r
 plot(lst[[1:12]])
 
 scoff(lst)=cbind(0.02,-273.15)
 plot(lst[[1:10]])
 ```
 
-```r
+``` r
 lw= data.frame(x= -78.791547,y=43.007211) %>% 
 st_as_sf(coords=c("x","y"),crs=4326)
 lw_proj <- st_transform(lw,st_crs(lst))
@@ -122,7 +116,7 @@ case10 <- ggplot(rawdata, aes(x = date, y = lst_value)) +
 ggsave(case10, filename= "case10.png")
 ```
 
-```r
+``` r
 lst_month <- tapp(lst, index = "month", fun = mean, na.rm = TRUE)
 
 names(lst_month)=month.name[as.numeric(str_replace(names(lst_month),"m_",""))]
@@ -134,10 +128,9 @@ gplot(lst_month) +
   coord_equal()
 
 monthly_mean <- global(lst_month,mean,na.rm=T)
-
 ```
 
-```r
+``` r
 lulc2 <- resample(lulc, lst, method= "near")
 
 lcds1=cbind.data.frame(
@@ -172,5 +165,4 @@ filter(landcover == c("Urban & built-up","Deciduous Broadleaf forest"))
   theme(
     legend.position = "top",
     axis.text.x = element_text(angle = 45, hjust = 1))    
-
 ```

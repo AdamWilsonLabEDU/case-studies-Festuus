@@ -1,22 +1,53 @@
 ---
 title: "Case Study 04"
-author: Your Name
-date: August 1, 2020
+author: Festus Adegbola
+date: Sept 24, 2024
 output: github_document
 ---
 
-## First Header
+```{r}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+```
+
+
+```{r setup, include=FALSE}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+```
+
+```{r}
+install.packages("tidyverse")
+install.packages("nycflights13")
+library(tidyverse)
+library(nycflights13)
+library(dplyr)
+```
+
+## #View the different datasets
 
 Comments
 
 ```{r}
-summary(cars)
+#View the different datasets
+View(flights)
+View(airports)
 ```
-
-## Second Header
-
-Comments
+```{r}
+# Join flights data with airports data to get full airport names
+flights_airports <- flights %>%
+  left_join(airports, by = c("dest" = "faa")) #keeps the rows left of the airports column...like adding the full name and airports dest 
+```
 
 ```{r}
-plot(pressure)
+# Find the farthest destination and get the full airport name
+farthest_airport <- flights_airports %>%
+  filter(!is.na(distance)) %>% #to ignore the distance that are invalid
+  arrange(desc(distance)) %>% #arrange in distance descending order to find highest easily
+  slice(1) %>% #take only the top result
+  pull(name) #extract airport name. can also use select 
+
+# show the result
+farthest_airport
+
 ```
+
